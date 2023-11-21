@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/static/fav.png" type="image/png">
+    <meta name="description" content="Discover our .CRX Downloader, a simple, ad-free tool for accessing Chrome extension source code. Input the extension URL and download the .CRX or .ZIP file for source viewing">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "TVSeries",
+            "name": "No Bullsh!t CRX Downloader",
+            "description": "Download extensions in .crx or .zip without the without any bullsh!t.",
+            "url": "https://ced.nobss.online/"
+        }
+    </script>
+
+    <link rel="canonical" href="https://ced.nobss.online/">
+
+    <style>
+      body {
+  background-color: #121212; /* Dark background color */
+  color: #ffffff; /* Light text color */
+}
+
+.container {
+  background-color: #1e1e1e; /* Dark container background color */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for a subtle lift */
+}
+
+h1 {
+  color: #61dafb; /* Light blue for the heading */
+}
+
+/* Customize form input styles */
+input.form-control {
+  background-color: #333; /* Dark form input background color */
+  color: #fff; /* Light text color for form inputs */
+}
+
+/* Customize button styles */
+button.btn-primary {
+  background-color: #61dafb; /* Light blue for the button background */
+  border: none;
+}
+
+/* Customize checkbox styles */
+input.form-check-input {
+  background-color: #333; /* Dark background color for checkboxes */
+}
+
+/* Customize form-check-label styles */
+label.form-check-label {
+  color: #fff; /* Light text color for checkboxes */
+}
+
+.logo {
+  display: block;
+  margin-bottom: 20px; /* Adjust as needed */
+  max-width: 100%; /* Make the logo responsive */
+}
+
+/* Add a new style for the flex container */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Use min-height instead of height for responsiveness */
+}
+
+    </style>
+
+    <title>No BullSh!t CED - No BullSh!t just the source!</title>
+  </head>
+  <body>
+    <!-- Wrap the logo and the form container in a new flex container -->
+    <div class="flex-container">
+      <img src="/static/logo.png" alt="Logo" class="logo">
+      <div class="container">
+        <form action="/download/" method="post">
+          <div class="mb-3">
+            <label for="url" class="form-label">Extension URL</label>
+            <input type="text" class="form-control" id="url" name="url" placeholder="ex: https://chromewebstore.google.com/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg">
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="downloadAsZip" name="downloadAsZip">
+            <label class="form-check-label" for="downloadAsZip">Download as .zip</label>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="renameByExtensionName" name="renameByExtensionName">
+            <label class="form-check-label" for="renameByExtensionName">Rename by Extension Name</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Download</button>
+        </form>
+         <div id="alertBox" class="alert alert-danger container" role="alert" style="margin-top: 20px; display: none;">
+    {{ error_message }}
+  </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
